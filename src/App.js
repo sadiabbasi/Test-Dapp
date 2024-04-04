@@ -111,6 +111,7 @@ const DemoComponent = () => {
     }
    
     
+    // Example for personal_sign
 
     // web3wallet.on('session_request', async event => {
     //   console.log("event", event)
@@ -133,6 +134,7 @@ const DemoComponent = () => {
     //   // const resp = await web3wallet.respondSessionRequest({ topic, response });
     //   // console.log("resp", resp)
     // })
+
     const iss = `did:pkh:eip155:1:0x253c8d99c27d47A4DcdB04B40115AB1dAc466280`;
     web3wallet.on("auth_request", async (event) => {
       console.log("auth_request", event)
@@ -157,33 +159,6 @@ const DemoComponent = () => {
     
     await web3wallet.core.pairing.pair({ uri: uri, activatePairing: true });
 
-  
-    // web3wallet.on('call_request', async (callRequest) => {
-    //   try {
-    //     console.log("callRequest", callRequest);
-  
-    //     if (callRequest.method === 'swap') {
-    //       const { inputToken, outputToken, inputAmount } = callRequest.params;
-    //       console.log(`Swapping ${inputAmount} ${inputToken} for ${outputToken}`);
-  
-    //       // Example: Approve the swap request
-    //       await web3wallet.approveRequest({
-    //         id: callRequest.id,
-    //         result: { status: 'approved' }, // You can adjust this based on your needs
-    //       });
-    //     } else {
-    //       await web3wallet.rejectRequest({
-    //         id: callRequest.id,
-    //         error: getSdkError("METHOD_NOT_SUPPORTED"),
-    //       });
-    //     }
-    //   } catch (error) {
-    //     await web3wallet.rejectRequest({
-    //       id: callRequest.id,
-    //       error: getSdkError("INTERNAL_ERROR"),
-    //     });
-    //   }
-    // });
   };
   
 
